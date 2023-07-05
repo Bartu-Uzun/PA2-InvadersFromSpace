@@ -27,10 +27,7 @@ public class Player : MonoBehaviour
         width = width - 0.25f; //geminin eninin yarısını çıkardık
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()

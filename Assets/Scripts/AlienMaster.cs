@@ -7,8 +7,8 @@ public class AlienMaster : MonoBehaviour
     [SerializeField] private GameObject enemyBulletPrefab;
     public static List<GameObject> allAliens = new List<GameObject>();
     
-    private Vector3 horizontalMoveDistance = new Vector3(0, 0, 0);
-    private Vector3 verticalMoveDistance = new Vector3(0, 0, 0);
+    private Vector3 horizontalMoveDistance = new Vector3(0.05f, 0, 0);
+    private Vector3 verticalMoveDistance = new Vector3(0, 0.15f, 0);
 
     private bool movingRight;
     private float moveTimer = 0.01f;
@@ -59,6 +59,7 @@ public class AlienMaster : MonoBehaviour
 
             if (allAliens[i].transform.position.x > MAX_RIGHT || allAliens[i].transform.position.x < MAX_LEFT) {
 
+                Debug.Log(allAliens[i].transform.position.x);
                 hitMax++;
             }
         }
