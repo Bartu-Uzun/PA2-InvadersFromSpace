@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    [SerializeField] private ObjectPool objectPool;
     [SerializeField] private GameObject bulletPrefab;
 
     Camera cam;
@@ -58,7 +59,14 @@ public class Player : MonoBehaviour
     private IEnumerator Shoot() {
 
         isShooting = true;
-        Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+    
+        //NO MORE USE INSTANTIATE TO CREATE A NEW BULLET!!
+        //Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+
+        //Instantiating a new friendlybullet from our bullet pool!
+        GameObject obj = objectPool.GetPooledObject();
+        obj.transform.position = gameObject.transform.position;
+
         yield return new WaitForSeconds(coolDown);
 
         isShooting = false;
